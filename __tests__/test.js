@@ -1,7 +1,11 @@
-function add (a,b) {
-  return a+b;
-}
+const app = require("../server");
+const request = require("supertest")(app);
 
-test("it can add" , () => {
-  expect(add(1,3)).toBe(4);
+test("it can respond with 200" , async () => {
+  const res = await request.get("/");
+  expect(res.statusCode).toBe(200);
+})
+test("it can respond with string hello", async () => {
+  const res = await request.get("/");
+  expect(res.text).toBe("hello")
 })
