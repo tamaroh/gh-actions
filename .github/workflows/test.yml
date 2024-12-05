@@ -8,5 +8,11 @@ jobs:
   Potato:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-      - run: npm test
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup
+        uses: actions/setup-node@v3
+      - name: install
+        uses: npm ci
+      - name: test
+        uses: npm test
