@@ -13,6 +13,6 @@ jobs:
       - name: setup
         uses: actions/setup-node@v3
       - name: install
-        uses: npm ci
+        run: npm ci
       - name: test
-        uses: npm test
+        run: npm test
