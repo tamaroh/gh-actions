@@ -9,3 +9,6 @@ test("it can respond with string hello", async () => {
   const res = await request.get("/");
   expect(res.text).toBe("hello")
 })
+test("add another test", () => {
+  expect(1).toBe(1);
+})
