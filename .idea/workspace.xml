@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eefa74e3-c4f3-4b74-97d9-9f5ab2caace4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="eefa74e3-c4f3-4b74-97d9-9f5ab2caace4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +90,7 @@
       <workItem from="1733215753447" duration="2303000" />
       <workItem from="1733221443587" duration="579000" />
       <workItem from="1733222029013" duration="1568000" />
-      <workItem from="1733223606869" duration="8917000" />
+      <workItem from="1733223606869" duration="9900000" />
     </task>
     <servers />
   </component>
