@@ -1,4 +1,4 @@
-name: potato
+name: potato-feature2
 run-name: potato is running!
 on:
   pull_request:
