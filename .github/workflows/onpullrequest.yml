@@ -6,8 +6,8 @@ on:
       - main
 jobs:
   test-including-database:
-    runs-on: ubuntu-20.04
-    container: node:20-bookworm-slim
+    runs-on: ubuntu-22.04
+    container: node:23-bookworm
     services:
       postgres:
         image: postgres
