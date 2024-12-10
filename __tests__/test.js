@@ -9,6 +9,8 @@ test("it can respond with string hello", async () => {
   const res = await request.get("/");
   expect(res.text).toBe("hello");
 });
-test("a", () => {
-  expect(1).toBe(1);
+test("it can respond array", async () => {
+  const res = await request.get("/api/posts");
+  console.log(res.body);
+  expect(res.body).toBeInstanceOf(Array);
 });
