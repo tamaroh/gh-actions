@@ -7,7 +7,7 @@ on:
 jobs:
   test-including-database:
     runs-on: ubuntu-22.04
-    container: node:23-bookworm-slim
+    container: node:22-bookworm-slim
     services:
       db:
         image: postgres
