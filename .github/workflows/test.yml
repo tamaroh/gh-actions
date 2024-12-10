@@ -1,4 +1,4 @@
-name: potato-feature2
+name: lint and test on push
 run-name: potato is running!
 on:
   pull_request:
