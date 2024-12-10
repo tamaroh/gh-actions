@@ -5,8 +5,25 @@ on:
     branches:
       - main
 jobs:
-  format-and-lint:
+  test-including-database:
     runs-on: ubuntu-22.04
+    container: node:lts
+    services:
+      db:
+        image: postgres
+        env:
+          POSTGRES_USER: ciuser
+          POSTGRES_PASSWORD: ciuser
+          POSTGRES_DB: gh_actions
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    env:
+      DATABASE_URL: "postgresql://ciuser:ciuser@db:5432/gh_actions"
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -14,5 +31,7 @@ jobs:
         uses: actions/setup-node@v3
       - name: install
         run: npm ci
+      - name: connect to psql
+        run: npx prisma migrate dev
       - name: test
         run: npm test
