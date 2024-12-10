@@ -7,7 +7,7 @@ on:
 jobs:
   test-including-database:
     runs-on: ubuntu-22.04
-    container: node:23-bookworm
+    container: node:23-bookworm-slim
     services:
       db:
         image: postgres
@@ -33,6 +33,5 @@ jobs:
         run: npm ci
       - name: connect to psql
         run: npx prisma migrate dev
-
       - name: test
         run: npm test
