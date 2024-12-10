@@ -22,6 +22,8 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+    env:
+      DATABASE_URL: "postgresql://ciuser:ciuser@db:5432/gh_actions"
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -31,7 +33,6 @@ jobs:
         run: npm ci
       - name: connect to psql
         run: npx prisma migrate dev
-        env:
-          DATABASE_URL: "postgresql://ciuser:ciuser@db:5432/gh_actions"
+
       - name: test
         run: npm test
