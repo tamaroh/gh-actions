@@ -5,9 +5,7 @@ const prisma = new PrismaClient();
 app.use(express.json());
 
 async function getPosts() {
-  const allPosts = await prisma.post.findMany();
-  console.log(allPosts);
-  return allPosts;
+  return await prisma.post.findMany();
 }
 
 app.get("/", (req, res) => {
@@ -17,7 +15,6 @@ app.get("/", (req, res) => {
 app.get("/api/posts", (req, res) => {
   getPosts()
     .then(async (r) => {
-      console.log(r);
       await prisma.$disconnect();
       res.json(r);
     })
