@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-22.04
     container: node:23-bookworm
     services:
-      postgres:
+      db:
         image: postgres
         env:
           POSTGRES_USER: ciuser
@@ -32,6 +32,6 @@ jobs:
       - name: connect to psql
         run: npx prisma migrate dev
         env:
-          DATABASE_URL: "postgresql://ciuser:ciuser@localhost:5432/gh_actions"
+          DATABASE_URL: "postgresql://ciuser:ciuser@db:5432/gh_actions"
       - name: test
         run: npm test
