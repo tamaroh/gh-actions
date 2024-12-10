@@ -1,11 +1,11 @@
-name: lint and test on push
-run-name: potato is running!
+name: test on pull request
+run-name: test
 on:
   pull_request:
     branches:
       - main
 jobs:
-  Potato:
+  format-and-lint:
     runs-on: ubuntu-22.04
     steps:
       - name: checkout
