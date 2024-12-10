@@ -5,8 +5,19 @@ on:
     branches:
       - main
 jobs:
-  format-and-lint:
+  test-including-database:
     runs-on: ubuntu-22.04
+    container: node:20-bookworm-slim
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -14,5 +25,9 @@ jobs:
         uses: actions/setup-node@v3
       - name: install
         run: npm ci
+      - name: connect to psql
+        run: prisma migrate
+        env:
+          DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/gh_actions?schema=public"
       - name: test
         run: npm test
