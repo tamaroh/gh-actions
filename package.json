@@ -5,9 +5,7 @@
   "scripts": {
     "test": "jest",
     "dev": "node --watch index.js",
-    "prepare": "husky",
-    "lint": "eslint .",
-    "format": "prettier . --write"
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +31,7 @@
     "supertest": "^7.0.0"
   },
   "lint-staged": {
-    "*.js": "eslint --fix"
+    "*.js": "eslint --fix",
+    "*": "prettier --write"
   }
 }
