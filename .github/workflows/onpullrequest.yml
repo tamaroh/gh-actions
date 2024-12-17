@@ -13,17 +13,15 @@ jobs:
         image: postgres
         env:
           POSTGRES_USER: ciuser
-          POSTGRES_PASSWORD: ciuser
+          POSTGRES_PASSWORD: pw
           POSTGRES_DB: gh_actions
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          - 5432:5432
     env:
-      DATABASE_URL: "postgresql://ciuser:ciuser@db:5432/gh_actions"
+      DATABASE_URL: "postgresql://ciuser:pw@db:5432/gh_actions"
     steps:
       - name: checkout
         uses: actions/checkout@v4

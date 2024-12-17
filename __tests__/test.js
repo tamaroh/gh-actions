@@ -11,6 +11,5 @@ test("it can respond with string hello", async () => {
 });
 test("it can respond array", async () => {
   const res = await request.get("/api/posts");
-  console.log(res.body);
   expect(res.body).toBeInstanceOf(Array);
 });
