@@ -6,7 +6,6 @@ app.use(express.json());
 
 async function getPosts() {
   const allPosts = await prisma.post.findMany();
-  console.log(allPosts);
   return allPosts;
 }
 
@@ -17,14 +16,12 @@ app.get("/", (req, res) => {
 app.get("/api/posts", (req, res) => {
   getPosts()
     .then(async (r) => {
-      console.log(r);
       await prisma.$disconnect();
       res.json(r);
     })
-    .catch(async (e) => {
-      console.error(e);
+    .catch(async () => {
       await prisma.$disconnect();
-      process.exit(1);
+      process.exit();
     });
 });
 
